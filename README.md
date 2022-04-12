@@ -1,4 +1,4 @@
-#Replication files for Price elasticity of demand for voluntary health insurance plans in Colombia
+# Replication files for Price elasticity of demand for voluntary health insurance plans in Colombia in BMC Health Services Research
 
 File *Step 4 Estimacion Modelo de selección_vSofia2.do* replicates the main tables and figures using 'Hogar_gasto_completo2.dta', which is in the derived data folder. Please amend the folders at the top of each do-file.
 
