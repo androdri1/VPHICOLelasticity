@@ -1,27 +1,13 @@
-* Author: Susana Otálvaro-Ramírez, Paul Rodriguez-Lesmes, Sofia Casabianca
-* Date: 2019.02.01
+* Author: Paul Rodriguez-Lesmes, Sofia Casabianca
+* Date: 2022.04.12
 * Goal: Estimate the selection model 
 
 
-if "`c(username)'"=="paul.rodriguez" {
-	glo data "D:\Paul.Rodriguez\Dropbox\Salud Colombia\Seguros\Data" 
-	glo derived "$data\..\Derived" 
-} 
-else if "`c(username)'"=="andro" {
-	glo data "C:\Users\\`c(username)'\Dropbox\tabaco\tabacoDrive\Seguros\Data" 
-	glo derived "C:\Users\\`c(username)'\Dropbox\tabaco\tabacoDrive\Derived" 
-}
-else if "`c(username)'"=="msofi" {
-	glo data "C:\Users\msofi\Dropbox\Seguros\Derived" 
-	glo derived "C:\Users\msofi\Dropbox\Seguros\Derived" 
-}
+glo data "D:\Paul.Rodriguez\Dropbox\Salud Colombia\Seguros\replication" 
+glo derived "$data\derived" 
 
-else {
-	glo data "C:\Users\\`c(username)'\Dropbox\tabacoDrive\ENPH\Data" 
-	glo derived "C:\Users\\`c(username)'\Dropbox\tabacoDrive\Seguros\Derived" 
-}
 
-if 1==0 {
+if 1==0 { // Only if replicating the construction of the base dataset
 	cd 		"$derived"
 	use "$derived\Hogar_gasto_completo1.dta", clear
 
@@ -80,7 +66,7 @@ if 1==0 {
 	*drop lny
 	*gen lny=ln(persingr)	
 	* .....................................................................
-	
+	drop P6630S1A1- P7516
 
 	save "$derived\Hogar_gasto_completo2.dta", replace
 }
